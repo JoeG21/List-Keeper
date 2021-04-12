@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+u1 = User.create({
+    first_name: 'Joe',
+    last_name: 'Gomez',
+    email: 'joe@gmail.com',
+    username: 'joecg',
+    password_digest: '12345'
+})
+
+n1 = Note.create({
+    user_id: u1.id,
+    title: 'Shopping List',
+    body: 'Eggs, milk, and sugar'
+})
+
+n2 = Note.create({
+    user_id: u1.id,
+    title: 'ABC',
+    body: '123'
+})
