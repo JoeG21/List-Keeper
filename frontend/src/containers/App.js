@@ -21,13 +21,16 @@ const App = () => {
         <div className='App'>
           <Switch>
             {/* <Route path='/'>
-            <NoteContainer />
-          </Route> */}
+              <NoteContainer />
+            </Route> */}
             <Route path='/signup'>
               <SignUp />
             </Route>
             <Route path='/login'>
               <Login />
+            </Route>
+            <Route path='/'>
+              <NoteContainer />
             </Route>
           </Switch>
         </div>
