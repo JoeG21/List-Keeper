@@ -1,0 +1,44 @@
+.App {
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  color: #ffffff;
+  /* background-color: #0c0032; */
+  /* background-color: #ffa600; */
+  background-color: rgb(41, 41, 41);
+  font-family: serif;
+  font-size: 1.8vw;
+  border-bottom: 4px solid white;
+  padding: .2vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  color: white;
+}
+
+.app-name {
+  margin-right: 33vw;
+}
+
+.signup-margin {
+  margin-right: 2vw;
+}
+
+.signup-form {
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+}

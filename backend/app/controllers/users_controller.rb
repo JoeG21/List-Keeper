@@ -2,13 +2,14 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show,:update,:destroy]
 
     def index
-      users = User.all
-      render json: users, status: 200
+      @users = User.all
+      render json: @users, status: 200
     end
   
     def create
-      user = User.create(user_params)
-      render json: user, status: 201
+      @user = User.create(user_params)
+      render json: @user, except: [:password_digest], status: 201 
+      # render :json => @user.as_json(except: [:password_digest]), :status => :ok THIS WAY ALSO WORK
     end
   
     def update
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
   
     private
     def user_params
-      params.permit(:first_name, :last_name, :email, :username, :password_digest)
+      params.require(:user).permit(:first_name, :last_name, :email, :password)
     end
   
     def set_user

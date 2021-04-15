@@ -11,8 +11,7 @@ u1 = User.create({
     first_name: 'Joe',
     last_name: 'Gomez',
     email: 'joe@gmail.com',
-    username: 'joecg',
-    password_digest: '12345'
+    password: '12345'
 })
 
 n1 = Note.create({
