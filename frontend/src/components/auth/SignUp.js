@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const SignUp = () => {
     const [first, setFirst] = useState('')
@@ -16,7 +16,7 @@ const SignUp = () => {
                 password: password
             }
         }
-        fetch('http://localhost:3000/signup', {
+        fetch('http://localhost:3001/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ const SignUp = () => {
             body: JSON.stringify(newUser)
         }).then(res => res.json())
         .then(user => console.log(user))
-        .catch(mes => console.log(mes))
+        .catch(error => console.log(error))
     }
 
     return (
