@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 
-
 const SignUp = () => {
     const [first, setFirst] = useState('')
     const [last, setLast] = useState('')
@@ -9,12 +8,24 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(fetch("http://localhost:3000/signup"))
-        
-
+        const newUser = {
+            user: {
+                first_name: first,
+                last_name: last,
+                email: email,
+                password: password
+            }
+        }
+        fetch('http://localhost:3000/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        }).then(res => res.json())
+        .then(user => console.log(user))
+        .catch(mes => console.log(mes))
     }
-
-    
 
     return (
         <div>
