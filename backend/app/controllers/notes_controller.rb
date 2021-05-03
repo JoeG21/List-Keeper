@@ -1,9 +1,16 @@
 class NotesController < ApplicationController
     before_action :set_note, only: [:show,:update,:destroy]
+    before_action :authenticate!, only: [:index, :destroy]
 
     def index
-        notes = Note.all
-        render json: notes, status: 200
+        if current_user
+            @notes = Note.all
+            render :json => @notes.as_json(
+                include: [:user]
+            ), :status => :ok
+        else 
+            render :json => { :msg => 'Login First...' }
+        end
     end
 
     def create
@@ -17,9 +24,12 @@ class NotesController < ApplicationController
     end
 
     def destroy
-        noteId = @note.id
-        @note.destroy
-        render json: {message:"Zap! Note deleted", noteId:noteId}
+        if @note.user == current_user
+            @note.destroy
+            render :json => { :msg => "Zap! Note deleted" }, :status => :ok
+        else
+            render :json => { :msg => "LOG IN" }, :status => :ok
+        end
     end
 
     def show

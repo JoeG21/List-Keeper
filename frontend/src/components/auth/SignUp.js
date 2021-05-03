@@ -16,7 +16,7 @@ const SignUp = () => {
                 password: password
             }
         }
-        fetch('http://localhost:3001/signup', {
+        fetch('http://localhost:3000/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,18 +31,18 @@ const SignUp = () => {
         <div>
             <form className='signup-form' onSubmit={e => handleSubmit(e)}>
                 <label> First Name </label>
-                <input onChange={e => setFirst(e.target.value)}></input>
+                <input className='user-input' onChange={e => setFirst(e.target.value)}></input>
 
                 <label> Last Name </label>
-                <input onChange={e => setLast(e.target.value)}></input>
+                <input className='user-input' onChange={e => setLast(e.target.value)}></input>
 
                 <label> Email </label>
-                <input onChange={e => setEmail(e.target.value)}></input>
+                <input className='user-input' onChange={e => setEmail(e.target.value)}></input>
 
                 <label> Password </label>
-                <input onChange={e => setPassword(e.target.value)}></input>
+                <input className='user-input' onChange={e => setPassword(e.target.value)}></input>
 
-                <input type="submit" value="Sign Up" className='signup-button' />
+                <input className='submit-button' type="submit" value="Sign Up" />
             </form>
         </div>
     )

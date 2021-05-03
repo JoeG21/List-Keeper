@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   
     def create
       @user = User.create(user_params)
-      render json: @user, except: [:password_digest], status: 201 
-      # render :json => @user.as_json(except: [:password_digest]), :status => :ok THIS WAY ALSO WORK
+      payload = { user_id: @user.id}
+      token = JWT.encode(payload, 'myKey', 'HS256')
+      render :json => { :auth_key => token }, :status => :ok
     end
   
     def update

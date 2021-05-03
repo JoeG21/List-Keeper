@@ -31,6 +31,14 @@ a {
   margin-right: 2vw;
 }
 
+.submit-button {
+  background-color: rgb(224, 224, 224);
+  font-size: 1.5vw;
+  margin: 2vh;
+  padding: .5vh;
+  border-radius: 8px;
+}
+
 .signup-form {
   font-size: 1.5vw;
   display: flex;
@@ -42,3 +50,8 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.user-input {
+  font-size: 1.5vw;
+}
+
