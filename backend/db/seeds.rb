@@ -11,7 +11,14 @@ u1 = User.create({
     first_name: 'Joe',
     last_name: 'Gomez',
     email: 'joe@gmail.com',
-    password: '12345'
+    password: '123'
+})
+
+u2 = User.create({
+    first_name: 'Doe',
+    last_name: 'Gomez',
+    email: 'doe@gmail.com',
+    password: '123'
 })
 
 n1 = Note.create({
@@ -24,4 +31,10 @@ n2 = Note.create({
     user_id: u1.id,
     title: 'ABC',
     body: '123'
+})
+
+n3 = Note.create({
+    user_id: u2.id,
+    title: 'THIS IS DOE',
+    body: 'ABC123'
 })
